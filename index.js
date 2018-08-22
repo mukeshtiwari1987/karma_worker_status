@@ -258,7 +258,7 @@ var BrowserStackBrowser = function (
       alreadyKilling = q.defer()
 
       if (workerId) {
-        console.log('Killing %s (worker %s).', browserName, workerId)
+        console.log(new Date().toISOString(), 'Killing %s (worker %s).', browserName, workerId)
         log.debug('Killing %s (worker %s).', browserName, workerId)
         client.terminateWorker(workerId, function () {
           log.debug('%s (worker %s) successfully killed.', browserName, workerId)

@@ -139,7 +139,7 @@ function Launcher (server, emitter, injector) {
     const browser = getBrowserById(id)
 
     if (browser) {
-      console.log("Force killing worker")
+      console.log(new Date().toISOString(), "Force killing worker")
       browser.forceKill().then(callback)
       return true
     }

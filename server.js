@@ -266,7 +266,7 @@ class Server extends KarmaEventEmitter {
           this.emit('browser_restart_failure', completedBrowser)
         }
       } else {
-        console.log('Emitting browser_complete_with_no_more_retries')
+        console.log(new Date().toISOString(), 'Emitting browser_complete_with_no_more_retries')
         this.emit('browser_complete_with_no_more_retries', completedBrowser)
       }
     })
@@ -279,7 +279,7 @@ class Server extends KarmaEventEmitter {
       this.on('browser_complete_with_no_more_retries', function (completedBrowser) {
         singleRunDoneBrowsers[completedBrowser.id] = true
 
-        console.log("Calling Launcher kill")
+        console.log(new Date().toISOString(), "Calling Launcher kill")
         if (launcher.kill(completedBrowser.id)) {
           // workaround to supress "disconnect" warning
           completedBrowser.state = Browser.STATE_DISCONNECTED

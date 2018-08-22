@@ -137,7 +137,7 @@ class Browser {
     }
 
     this.emitter.emit('browsers_change', this.collection)
-    console.log("Emitting browser_complete")
+    console.log(new Date().toISOString(), "Emitting browser_complete")
     this.emitter.emit('browser_complete', this, result)
 
     this.clearNoActivityTimeout()
@@ -270,7 +270,7 @@ class Browser {
     socket.on('start', (info) => this.onStart(info))
     socket.on('karma_error', (error) => this.onKarmaError(error))
     socket.on('complete', (result) => {
-      console.log("Received complete event");
+      console.log(new Date().toISOString(), "Received complete event");
       this.onComplete(result);
     })
     socket.on('info', (info) => this.onInfo(info))
